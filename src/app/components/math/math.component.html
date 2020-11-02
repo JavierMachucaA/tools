@@ -1,0 +1,54 @@
+<h1>Primer Numbers</h1>
+<hr>
+<p>
+  This option allow to know the next N primes numbers in sequence
+</p>
+<button mat-raised-button (click)="customOptions=!customOptions">
+  Show Custom Options
+  <mat-icon matSuffix>menu_open</mat-icon>
+</button>
+<div class="form-container" class="layout-margin" *ngIf="customOptions">
+  <form [formGroup]="customForm" (submit)="submit()">
+    <!--<div layout="row">
+      <div flex>-->
+    <mat-form-field appearance="outline">
+      <mat-label>Limit</mat-label>
+      <input matInput placeholder="Ej: 3" formControlName="topNumber">
+      <mat-error *ngIf="customForm.controls.topNumber.touched && customForm.controls.topNumber.invalid">
+        <span *ngIf="customForm.controls.topNumber.errors.pattern">Only numbers</span>
+      </mat-error>
+      <mat-icon matSuffix>pan_tool</mat-icon>
+      <!--<mat-hint>Hint</mat-hint>-->
+    </mat-form-field>
+    <!--</div>
+      <div flex>-->
+    <mat-form-field appearance="outline">
+      <mat-label>Count Primes</mat-label>
+      <input matInput placeholder="Ej: 50" formControlName="countPrimes">
+      <mat-error *ngIf="customForm.controls.countPrimes.touched && customForm.controls.countPrimes.invalid">
+        <span *ngIf="customForm.controls.countPrimes.errors.pattern">Only numbers</span>
+      </mat-error>
+      <mat-icon matSuffix>pause</mat-icon>
+      <!--<mat-hint>Hint</mat-hint>-->
+    </mat-form-field>
+    <!--</div>
+      <div flex>-->
+    <button mat-raised-button color="primary" type="submit">Get Primes</button>
+    <!--</div>
+    </div>-->
+  </form>
+  <br>
+</div>
+<br>
+<br>
+
+<div layout="row">
+  <div flex>
+    <label for="">
+      The list of prime Numbers is:
+    </label>
+  </div>
+  <div flex>
+    <label for="">[ {{listPrime}} ]</label>
+  </div>
+</div>
